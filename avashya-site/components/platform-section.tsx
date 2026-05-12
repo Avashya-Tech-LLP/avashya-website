@@ -70,7 +70,7 @@ export default function PlatformSection() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect mb-6">
             <Rocket className="w-4 h-4 text-accent flex-shrink-0" />
-            <span className="text-xs sm:text-sm font-medium text-text-secondary">Service 02</span>
+            <span className="text-xs sm:text-sm font-medium text-text-secondary">Platform 01</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mb-4 sm:mb-6 px-2">
