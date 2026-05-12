@@ -32,7 +32,7 @@ export default function ProblemSection() {
   ];
 
   return (
-    <section className="relative py-24 md:py-32 bg-bg-secondary overflow-hidden">
+    <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-bg-secondary overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -41,34 +41,34 @@ export default function ProblemSection() {
         }} />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect mb-6">
-            <AlertTriangle className="w-4 h-4 text-accent" />
-            <span className="text-sm font-medium text-text-secondary">The Efficiency Gap</span>
+            <AlertTriangle className="w-4 h-4 text-accent flex-shrink-0" />
+            <span className="text-xs sm:text-sm font-medium text-text-secondary">The Efficiency Gap</span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mb-4 sm:mb-6 px-2">
             AI Coding Assistants Promise Velocity.
             <br />
             <span className="gradient-text">Reality Delivers Chaos.</span>
           </h2>
 
-          <p className="text-xl text-text-secondary leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-text-secondary leading-relaxed px-2">
             Your team adopted Claude, Copilot, or Cursor. Yet engineering throughput hasn't scaled.
             The problem isn't the AI—it's the <span className="text-primary font-semibold">absence of optimization infrastructure</span>.
           </p>
         </motion.div>
 
         {/* Problems Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {problems.map((problem, index) => (
             <motion.div
               key={index}
@@ -76,22 +76,22 @@ export default function ProblemSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="glass-effect rounded-2xl p-6 hover:border-primary/30 transition-all duration-300"
+              className="glass-effect rounded-xl sm:rounded-2xl p-5 sm:p-6 hover:border-primary/30 transition-all duration-300"
             >
-              <div className="flex items-start gap-4 mb-4">
-                <div className="p-3 rounded-xl bg-primary/10">
-                  <problem.icon className="w-6 h-6 text-primary" />
+              <div className="flex items-start gap-3 sm:gap-4 mb-4">
+                <div className="p-2.5 sm:p-3 rounded-xl bg-primary/10 flex-shrink-0">
+                  <problem.icon className="w-5 sm:w-6 h-5 sm:h-6 text-primary" />
                 </div>
-                <div className="text-5xl font-bold gradient-text">
+                <div className="text-4xl sm:text-5xl font-bold gradient-text">
                   {problem.stat}
                 </div>
               </div>
 
-              <h3 className="text-xl font-semibold text-text-primary mb-2">
+              <h3 className="text-lg sm:text-xl font-semibold text-text-primary mb-2">
                 {problem.title}
               </h3>
 
-              <p className="text-text-tertiary leading-relaxed">
+              <p className="text-sm sm:text-base text-text-tertiary leading-relaxed">
                 {problem.description}
               </p>
             </motion.div>
@@ -104,14 +104,14 @@ export default function ProblemSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 text-center"
+          className="mt-12 sm:mt-16 text-center"
         >
-          <div className="glass-effect rounded-2xl p-8 max-w-4xl mx-auto border-primary/20">
-            <p className="text-lg text-text-primary mb-4">
+          <div className="glass-effect rounded-xl sm:rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto border-primary/20">
+            <p className="text-base sm:text-lg text-text-primary mb-3 sm:mb-4 leading-relaxed">
               <span className="font-semibold text-primary">Avashya</span> transforms this efficiency gap into measurable gains—
               by treating coding agents as <span className="font-semibold">production systems that require observability, governance, and optimization</span>.
             </p>
-            <p className="text-text-secondary">
+            <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
               We map your current state to the AI Development Life Cycle (AIDLC) and implement the infrastructure layer missing from every AI coding workflow.
             </p>
           </div>

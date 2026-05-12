@@ -42,8 +42,8 @@ export default function HeroSection() {
       />
 
       {/* Content Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-24">
-        <div className="text-center space-y-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24">
+        <div className="text-center space-y-6 sm:space-y-8">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -51,9 +51,9 @@ export default function HeroSection() {
             transition={{ duration: 0.6 }}
             className="inline-flex"
           >
-            <div className="glass-effect rounded-full px-6 py-2 inline-flex items-center gap-2">
-              <Zap className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium text-text-secondary">
+            <div className="glass-effect rounded-full px-4 sm:px-6 py-2 inline-flex items-center gap-2">
+              <Zap className="w-4 h-4 text-accent flex-shrink-0" />
+              <span className="text-xs sm:text-sm font-medium text-text-secondary">
                 The Avashya Intelligence Platform
               </span>
             </div>
@@ -64,7 +64,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight px-2"
           >
             <span className="text-text-primary">Maximize Engineering</span>
             <br />
@@ -77,10 +77,11 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-text-secondary max-w-4xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-text-secondary max-w-4xl mx-auto leading-relaxed px-2"
           >
             Transform AI coding assistants from experimental tools into measurable productivity multipliers.
-            <br />
+            <br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>
             Optimize context management, orchestrate team agents, and ship with confidence.
           </motion.p>
 
@@ -89,7 +90,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto pt-8"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-4xl mx-auto pt-6 sm:pt-8 px-2"
           >
             {[
               { icon: Code2, label: '3x Context Efficiency', description: 'Eliminate redundant token usage' },
@@ -98,11 +99,11 @@ export default function HeroSection() {
             ].map((item, index) => (
               <div
                 key={index}
-                className="glass-effect rounded-2xl p-6 text-left hover:border-primary/30 transition-all duration-300"
+                className="glass-effect rounded-xl sm:rounded-2xl p-4 sm:p-6 text-left hover:border-primary/30 transition-all duration-300"
               >
-                <item.icon className="w-8 h-8 text-primary mb-3" />
-                <h3 className="text-lg font-semibold text-text-primary mb-1">{item.label}</h3>
-                <p className="text-sm text-text-tertiary">{item.description}</p>
+                <item.icon className="w-6 sm:w-8 h-6 sm:h-8 text-primary mb-2 sm:mb-3" />
+                <h3 className="text-base sm:text-lg font-semibold text-text-primary mb-1">{item.label}</h3>
+                <p className="text-xs sm:text-sm text-text-tertiary">{item.description}</p>
               </div>
             ))}
           </motion.div>
@@ -112,15 +113,15 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center pt-6 sm:pt-8 px-2"
           >
-            <button className="group relative px-8 py-4 bg-primary hover:bg-primary-light rounded-full font-semibold text-white transition-all duration-300 flex items-center gap-2 overflow-hidden">
-              <span className="relative z-10">Request Platform Demo</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <button className="group relative px-6 sm:px-8 py-3.5 sm:py-4 bg-primary hover:bg-primary-light rounded-full font-semibold text-white transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden min-h-[48px]">
+              <span className="relative z-10 text-sm sm:text-base">Request Platform Demo</span>
+              <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </button>
 
-            <button className="px-8 py-4 glass-effect hover:border-primary/50 rounded-full font-semibold text-text-primary transition-all duration-300">
+            <button className="px-6 sm:px-8 py-3.5 sm:py-4 glass-effect hover:border-primary/50 rounded-full font-semibold text-text-primary transition-all duration-300 text-sm sm:text-base min-h-[48px]">
               Assess Your Engineering Effectiveness
             </button>
           </motion.div>
@@ -130,15 +131,15 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="pt-16"
+            className="pt-12 sm:pt-16 px-2"
           >
-            <p className="text-sm text-text-tertiary mb-4">Trusted by engineering teams optimizing AI workflows</p>
-            <div className="flex justify-center items-center gap-8 opacity-50">
+            <p className="text-xs sm:text-sm text-text-tertiary mb-4">Trusted by engineering teams optimizing AI workflows</p>
+            <div className="flex justify-center items-center gap-4 sm:gap-6 md:gap-8 opacity-50 overflow-x-auto">
               {/* Placeholder for company logos */}
-              <div className="w-24 h-8 bg-text-tertiary/20 rounded" />
-              <div className="w-24 h-8 bg-text-tertiary/20 rounded" />
-              <div className="w-24 h-8 bg-text-tertiary/20 rounded" />
-              <div className="w-24 h-8 bg-text-tertiary/20 rounded" />
+              <div className="w-20 sm:w-24 h-6 sm:h-8 bg-text-tertiary/20 rounded flex-shrink-0" />
+              <div className="w-20 sm:w-24 h-6 sm:h-8 bg-text-tertiary/20 rounded flex-shrink-0" />
+              <div className="w-20 sm:w-24 h-6 sm:h-8 bg-text-tertiary/20 rounded flex-shrink-0 hidden sm:block" />
+              <div className="w-20 sm:w-24 h-6 sm:h-8 bg-text-tertiary/20 rounded flex-shrink-0 hidden sm:block" />
             </div>
           </motion.div>
         </div>

@@ -31,30 +31,30 @@ export default function Navigation() {
         isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">A</span>
+          <a href="#" className="flex items-center gap-2 sm:gap-3 group">
+            <div className="w-8 sm:w-10 h-8 sm:h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
+              <span className="text-white font-bold text-lg sm:text-xl">A</span>
             </div>
-            <span className="text-2xl font-bold text-text-primary group-hover:text-primary transition-colors">
+            <span className="text-xl sm:text-2xl font-bold text-text-primary group-hover:text-primary transition-colors">
               Avashya
             </span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-text-secondary hover:text-text-primary transition-colors font-medium"
+                className="text-text-secondary hover:text-text-primary transition-colors font-medium text-sm lg:text-base"
               >
                 {item.label}
               </a>
             ))}
-            <button className="px-6 py-2.5 bg-primary hover:bg-primary-light rounded-full font-semibold text-white transition-all duration-300">
+            <button className="px-5 lg:px-6 py-2.5 bg-primary hover:bg-primary-light rounded-full font-semibold text-white transition-all duration-300 text-sm lg:text-base">
               Get Started
             </button>
           </div>
@@ -62,7 +62,8 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-text-primary"
+            className="md:hidden text-text-primary p-2 -mr-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
+            aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -77,20 +78,22 @@ export default function Navigation() {
           exit={{ opacity: 0, y: -20 }}
           className="md:hidden glass-effect border-t border-primary/10"
         >
-          <div className="px-6 py-4 space-y-4">
+          <div className="px-4 sm:px-6 py-4 space-y-1">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="block text-text-secondary hover:text-text-primary transition-colors font-medium"
+                className="block text-text-secondary hover:text-text-primary transition-colors font-medium py-3 px-2 rounded-lg hover:bg-primary/5 min-h-[44px] flex items-center"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
               </a>
             ))}
-            <button className="w-full px-6 py-2.5 bg-primary hover:bg-primary-light rounded-full font-semibold text-white transition-all duration-300">
-              Get Started
-            </button>
+            <div className="pt-3">
+              <button className="w-full px-6 py-3 bg-primary hover:bg-primary-light rounded-full font-semibold text-white transition-all duration-300 min-h-[48px]">
+                Get Started
+              </button>
+            </div>
           </div>
         </motion.div>
       )}
