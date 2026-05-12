@@ -3,10 +3,12 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import FilloutModal from './fillout-modal';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +56,10 @@ export default function Navigation() {
                 {item.label}
               </a>
             ))}
-            <button className="px-5 lg:px-6 py-2.5 bg-primary hover:bg-primary-light rounded-full font-semibold text-white transition-all duration-300 text-sm lg:text-base">
+            <button
+              onClick={() => setIsDemoModalOpen(true)}
+              className="px-5 lg:px-6 py-2.5 bg-primary hover:bg-primary-light rounded-full font-semibold text-white transition-all duration-300 text-sm lg:text-base"
+            >
               Get Started
             </button>
           </div>
@@ -90,13 +95,26 @@ export default function Navigation() {
               </a>
             ))}
             <div className="pt-3">
-              <button className="w-full px-6 py-3 bg-primary hover:bg-primary-light rounded-full font-semibold text-white transition-all duration-300 min-h-[48px]">
+              <button
+                onClick={() => {
+                  setIsDemoModalOpen(true);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="w-full px-6 py-3 bg-primary hover:bg-primary-light rounded-full font-semibold text-white transition-all duration-300 min-h-[48px]"
+              >
                 Get Started
               </button>
             </div>
           </div>
         </motion.div>
       )}
+
+      {/* Fillout Modal */}
+      <FilloutModal
+        isOpen={isDemoModalOpen}
+        onClose={() => setIsDemoModalOpen(false)}
+        formId="pRLAtvCzPGus"
+      />
     </motion.nav>
   );
 }

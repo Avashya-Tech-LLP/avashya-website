@@ -1,9 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Zap, Code2, TrendingUp } from 'lucide-react';
+import FilloutModal from './fillout-modal';
 
 export default function HeroSection() {
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bg-primary">
       {/* Animated Background Grid */}
@@ -115,7 +118,10 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center pt-6 sm:pt-8 px-2"
           >
-            <button className="group relative px-6 sm:px-8 py-3.5 sm:py-4 bg-primary hover:bg-primary-light rounded-full font-semibold text-white transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden min-h-[48px]">
+            <button
+              onClick={() => setIsDemoModalOpen(true)}
+              className="group relative px-6 sm:px-8 py-3.5 sm:py-4 bg-primary hover:bg-primary-light rounded-full font-semibold text-white transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden min-h-[48px]"
+            >
               <span className="relative z-10 text-sm sm:text-base">Request Platform Demo</span>
               <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -160,6 +166,13 @@ export default function HeroSection() {
           <div className="w-1 h-2 bg-text-tertiary/50 rounded-full" />
         </motion.div>
       </motion.div>
+
+      {/* Fillout Modal */}
+      <FilloutModal
+        isOpen={isDemoModalOpen}
+        onClose={() => setIsDemoModalOpen(false)}
+        formId="pRLAtvCzPGus"
+      />
     </section>
   );
 }
