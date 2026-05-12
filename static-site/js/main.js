@@ -34,11 +34,6 @@ function closeDemoModal() {
 // Open modal when button is clicked
 openDemoModalBtn.addEventListener('click', openDemoModal);
 
-// Also handle all "Get Started" buttons
-document.querySelectorAll('.open-demo-btn').forEach(btn => {
-    btn.addEventListener('click', openDemoModal);
-});
-
 // Close modal when close button is clicked
 closeModalBtn.addEventListener('click', closeDemoModal);
 

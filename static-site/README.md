@@ -19,11 +19,13 @@ This is a fully static website converted from the Next.js version, maintaining t
 
 ```
 static-site/
-├── index.html          # Main HTML file
+├── index.html          # Main website
+├── login.html          # Login page
 ├── css/
 │   └── styles.css      # All styles and animations
 ├── js/
-│   └── main.js         # JavaScript for interactivity
+│   ├── main.js         # Main site JavaScript
+│   └── login.js        # Login page JavaScript
 ├── assets/
 │   └── images/
 │       └── logo.png    # Avashya logo
@@ -153,14 +155,21 @@ fetch('https://your-api.com/contact', {
 - Lazy loading implemented via Intersection Observer
 - Total page size: < 100KB (excluding images)
 
-## Sections
+## Pages
 
+### Main Site (index.html)
 1. **Hero Section**: Main headline with value propositions
 2. **Problem Section**: Pain points and efficiency gaps
 3. **Services Section**: Coding Agent Optimization and AIDLC Framework
 4. **Platform Section**: Command Center dashboard and features
 5. **Contact Section**: Contact form with process steps
 6. **Footer**: Links and company information
+
+### Login Page (login.html)
+1. **Login Form**: Email/password authentication
+2. **Social Login**: Google and GitHub OAuth
+3. **Info Panel**: Platform benefits and stats
+4. **Demo Request**: Link to request demo modal
 
 ## License
 

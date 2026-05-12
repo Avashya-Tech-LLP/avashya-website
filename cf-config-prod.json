@@ -1,0 +1,54 @@
+{
+    "CallerReference": "avashya-site-prod-1747039800",
+    "Comment": "CloudFront distribution for Avashya website (Production)",
+    "DefaultRootObject": "index.html",
+    "Origins": {
+        "Quantity": 1,
+        "Items": [
+            {
+                "Id": "S3-avashya-site-prod",
+                "DomainName": "avashya-site-prod.s3-website-us-east-1.amazonaws.com",
+                "CustomOriginConfig": {
+                    "HTTPPort": 80,
+                    "HTTPSPort": 443,
+                    "OriginProtocolPolicy": "http-only"
+                }
+            }
+        ]
+    },
+    "DefaultCacheBehavior": {
+        "TargetOriginId": "S3-avashya-site-prod",
+        "ViewerProtocolPolicy": "redirect-to-https",
+        "AllowedMethods": {
+            "Quantity": 2,
+            "Items": ["GET", "HEAD"],
+            "CachedMethods": {
+                "Quantity": 2,
+                "Items": ["GET", "HEAD"]
+            }
+        },
+        "Compress": true,
+        "ForwardedValues": {
+            "QueryString": false,
+            "Cookies": {
+                "Forward": "none"
+            }
+        },
+        "MinTTL": 0,
+        "DefaultTTL": 86400,
+        "MaxTTL": 31536000
+    },
+    "CustomErrorResponses": {
+        "Quantity": 1,
+        "Items": [
+            {
+                "ErrorCode": 404,
+                "ResponsePagePath": "/index.html",
+                "ResponseCode": "200",
+                "ErrorCachingMinTTL": 300
+            }
+        ]
+    },
+    "Enabled": true,
+    "PriceClass": "PriceClass_100"
+}

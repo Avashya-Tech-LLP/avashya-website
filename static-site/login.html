@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Avashya Intelligence Platform</title>
+    <meta name="description" content="Access the Avashya Intelligence Platform">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navigation" class="nav scrolled">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-link">
+                <img src="assets/images/logo.png" alt="Avashya Logo" class="logo-image">
+            </a>
+
+            <div class="nav-desktop">
+                <a href="index.html#platform" class="nav-link">Platform</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="close-icon hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="mobile-menu hidden" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a href="index.html#platform" class="mobile-nav-link">Platform</a>
+                <a href="index.html#services" class="mobile-nav-link">Services</a>
+                <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Section -->
+    <section class="login-section">
+        <div class="login-bg-grid"></div>
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+
+        <div class="login-container">
+            <!-- Login Card -->
+            <div class="login-card">
+                <div class="login-header">
+                    <h1 class="login-title">Welcome Back</h1>
+                    <p class="login-subtitle">Access the Avashya Intelligence Platform</p>
+                </div>
+
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="email">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            Email Address
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@company.com"
+                            required
+                            autocomplete="email"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Password
+                        </label>
+                        <div class="password-input-wrapper">
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                required
+                                autocomplete="current-password"
+                            >
+                            <button type="button" class="password-toggle" id="togglePassword" aria-label="Toggle password visibility">
+                                <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                <svg class="eye-off-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="remember" name="remember">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large btn-full">
+                        Sign In
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+
+                    <button type="button" class="btn btn-glass btn-full social-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                        Continue with Google
+                    </button>
+
+                    <button type="button" class="btn btn-glass btn-full social-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                        </svg>
+                        Continue with GitHub
+                    </button>
+                </form>
+
+                <div class="login-footer">
+                    <p>Don't have an account? <a href="#" class="signup-link" id="openDemoModalFromLogin">Request Demo</a></p>
+                </div>
+            </div>
+
+            <!-- Info Panel -->
+            <div class="login-info-panel">
+                <div class="info-content">
+                    <div class="badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                        <span>Intelligence Platform</span>
+                    </div>
+
+                    <h2 class="info-title">
+                        Transform Your
+                        <br />
+                        <span class="gradient-text">AI Development Workflow</span>
+                    </h2>
+
+                    <p class="info-description">
+                        Access powerful tools to optimize coding agents, track performance, and govern AI workflows across your engineering team.
+                    </p>
+
+                    <div class="info-features">
+                        <div class="info-feature">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Real-time Agent Monitoring</span>
+                        </div>
+                        <div class="info-feature">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Context Optimization</span>
+                        </div>
+                        <div class="info-feature">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Team Orchestration</span>
+                        </div>
+                        <div class="info-feature">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Enterprise Security</span>
+                        </div>
+                    </div>
+
+                    <div class="info-stats">
+                        <div class="stat">
+                            <div class="stat-value">3x</div>
+                            <div class="stat-label">Context Efficiency</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">40%</div>
+                            <div class="stat-label">Faster Iterations</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">99.7%</div>
+                            <div class="stat-label">Uptime</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Request Modal (same as index.html) -->
+    <div id="demoModal" class="modal hidden">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+
+            <div class="modal-header">
+                <h2 class="modal-title">Request Platform Demo</h2>
+                <p class="modal-subtitle">
+                    Schedule a personalized walkthrough of the Avashya Intelligence Platform with our team
+                </p>
+            </div>
+
+            <form class="demo-form" id="demoForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="demo-first-name">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            First Name
+                        </label>
+                        <input type="text" id="demo-first-name" name="firstName" placeholder="John" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="demo-last-name">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Last Name
+                        </label>
+                        <input type="text" id="demo-last-name" name="lastName" placeholder="Doe" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="demo-email">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        Work Email
+                    </label>
+                    <input type="email" id="demo-email" name="email" placeholder="john@company.com" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="demo-company">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                            Company
+                        </label>
+                        <input type="text" id="demo-company" name="company" placeholder="Acme Corp" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="demo-team-size">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            Engineering Team Size
+                        </label>
+                        <select id="demo-team-size" name="teamSize" required>
+                            <option value="">Select team size</option>
+                            <option value="1-10">1-10 engineers</option>
+                            <option value="11-50">11-50 engineers</option>
+                            <option value="51-100">51-100 engineers</option>
+                            <option value="101-500">101-500 engineers</option>
+                            <option value="500+">500+ engineers</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="demo-role">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 7h-9"></path>
+                            <path d="M14 17H5"></path>
+                            <circle cx="17" cy="17" r="3"></circle>
+                            <circle cx="7" cy="7" r="3"></circle>
+                        </svg>
+                        Your Role
+                    </label>
+                    <select id="demo-role" name="role" required>
+                        <option value="">Select your role</option>
+                        <option value="engineering-leader">Engineering Leader (VP, Director, Manager)</option>
+                        <option value="devops-platform">DevOps/Platform Engineer</option>
+                        <option value="software-engineer">Software Engineer</option>
+                        <option value="architect">Architect/Principal Engineer</option>
+                        <option value="cto">CTO/Head of Engineering</option>
+                        <option value="product">Product Manager</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="demo-use-case">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        Primary Use Case (Optional)
+                    </label>
+                    <textarea id="demo-use-case" name="useCase" rows="3" placeholder="What are you hoping to achieve with agent optimization?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="demo-timeline">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Implementation Timeline
+                    </label>
+                    <select id="demo-timeline" name="timeline" required>
+                        <option value="">When are you looking to implement?</option>
+                        <option value="immediate">Immediate (within 1 month)</option>
+                        <option value="1-3-months">1-3 months</option>
+                        <option value="3-6-months">3-6 months</option>
+                        <option value="6-12-months">6-12 months</option>
+                        <option value="exploring">Just exploring</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large btn-full">
+                    Request Demo
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+
+                <p class="form-note">
+                    We'll contact you within 24 hours to schedule a personalized demo.
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
