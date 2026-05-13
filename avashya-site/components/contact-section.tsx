@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Mail, Building2, User, MessageSquare, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+import Toast from './toast';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -11,10 +12,64 @@ export default function ContactSection() {
     company: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [toast, setToast] = useState<{
+    show: boolean;
+    message: string;
+    type: 'success' | 'error';
+  }>({
+    show: false,
+    message: '',
+    type: 'success',
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Success
+        setToast({
+          show: true,
+          message: "Message sent! We'll respond within 24 hours.",
+          type: 'success',
+        });
+        // Clear form
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          message: '',
+        });
+      } else {
+        // Error from API
+        setToast({
+          show: true,
+          message: data.error || 'Something went wrong. Please try again.',
+          type: 'error',
+        });
+      }
+    } catch (error) {
+      // Network error
+      setToast({
+        show: true,
+        message: 'Failed to send message. Please try again or email us at varun.k@avashya.tech',
+        type: 'error',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -172,10 +227,15 @@ export default function ContactSection() {
 
                 <button
                   type="submit"
-                  className="w-full group relative px-6 py-3.5 sm:py-4 bg-primary hover:bg-primary-light rounded-lg sm:rounded-xl font-semibold text-white transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden text-sm sm:text-base min-h-[48px]"
+                  disabled={isSubmitting}
+                  className="w-full group relative px-6 py-3.5 sm:py-4 bg-primary hover:bg-primary-light rounded-lg sm:rounded-xl font-semibold text-white transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden text-sm sm:text-base min-h-[48px] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span className="relative z-10">Request Consultation</span>
-                  <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                  <span className="relative z-10">
+                    {isSubmitting ? 'Sending...' : 'Request Consultation'}
+                  </span>
+                  {!isSubmitting && (
+                    <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </button>
 
@@ -187,6 +247,14 @@ export default function ContactSection() {
           </motion.div>
         </div>
       </div>
+
+      {/* Toast Notification */}
+      <Toast
+        message={toast.message}
+        type={toast.type}
+        isVisible={toast.show}
+        onClose={() => setToast({ ...toast, show: false })}
+      />
     </section>
   );
 }
