@@ -284,8 +284,8 @@ document.querySelectorAll('.btn').forEach(btn => {
 
 // Add active state to navigation links based on scroll position
 window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id], div[id="framework"]');
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
 
     let current = '';
 
@@ -322,6 +322,25 @@ activeStyle.textContent = `
         right: 0;
         height: 2px;
         background: var(--color-primary);
+    }
+
+    .mobile-nav-link.active {
+        color: var(--color-primary);
+        font-weight: 600;
+        position: relative;
+        padding-left: 1rem;
+    }
+
+    .mobile-nav-link.active::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 70%;
+        background: var(--color-primary);
+        border-radius: 2px;
     }
 `;
 document.head.appendChild(activeStyle);

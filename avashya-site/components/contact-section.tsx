@@ -101,7 +101,7 @@ export default function ContactSection() {
 
             <p className="text-base sm:text-lg md:text-xl text-text-secondary mb-6 sm:mb-8 leading-relaxed">
               Schedule a technical consultation to assess your Engineering Effectiveness Index
-              and map optimization opportunities in your AIDLC.
+              and map optimization opportunities in your ISDLC.
             </p>
 
             <div className="space-y-5 sm:space-y-6">
@@ -125,10 +125,10 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-base sm:text-lg font-semibold text-text-primary mb-1">
-                    AIDLC Mapping
+                    ISDLC Mapping
                   </h3>
                   <p className="text-sm sm:text-base text-text-tertiary leading-relaxed">
-                    Identify gaps in discovery, development, testing, and deployment phases
+                    Identify gaps across Intend, Structure, Develop, Launch, and Continuously Evolve phases
                   </p>
                 </div>
               </div>

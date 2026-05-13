@@ -38,26 +38,31 @@ export default function ServicesSection() {
     },
   ];
 
-  const aidlcPhases = [
+  const isdlcPhases = [
     {
-      phase: 'Discovery',
-      focus: 'Context Management',
-      description: 'Optimize prompt templates, codebase indexing, and knowledge retrieval',
+      phase: 'Intend',
+      focus: 'AI-Assisted Discovery',
+      description: 'AI-assisted requirement discovery, business analysis, feasibility analysis, and stakeholder alignment',
     },
     {
-      phase: 'Development',
-      focus: 'Agent Orchestration',
-      description: 'Coordinate multi-agent workflows for complex refactors and features',
+      phase: 'Structure',
+      focus: 'Architecture Design',
+      description: 'AI-enhanced architecture design, workflow modeling, integration planning, and system decomposition',
     },
     {
-      phase: 'Testing',
-      focus: 'Quality Gates',
-      description: 'Automated validation of agent-generated code against your standards',
+      phase: 'Develop',
+      focus: 'Intelligent Engineering',
+      description: 'AI-assisted engineering, intelligent code generation, automated testing, and collaborative implementation',
     },
     {
-      phase: 'Deployment',
-      focus: 'Ship Confidence',
-      description: 'Pre-merge checks and rollback procedures for agent contributions',
+      phase: 'Launch',
+      focus: 'Deployment Automation',
+      description: 'AI-driven validation, deployment automation, operational readiness, and release governance',
+    },
+    {
+      phase: 'Continuously Evolve',
+      focus: 'Intelligent Operations',
+      description: 'AI-powered observability, optimization, modernization, and continuous improvement',
     },
   ];
 
@@ -118,7 +123,7 @@ export default function ServicesSection() {
                 </h3>
                 <p className="text-sm sm:text-base text-text-secondary leading-relaxed mb-4 sm:mb-6">
                   Our proprietary benchmark quantifies your team's AI-assisted output quality,
-                  iteration speed, and context efficiency—across the entire AIDLC.
+                  iteration speed, and context efficiency—across the entire ISDLC.
                 </p>
                 <div className="h-2 bg-bg-secondary rounded-full overflow-hidden">
                   <motion.div
@@ -234,7 +239,7 @@ export default function ServicesSection() {
           </div>
         </motion.div>
 
-        {/* AIDLC Framework Mapping */}
+        {/* ISDLC Framework Mapping */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -248,15 +253,15 @@ export default function ServicesSection() {
               <span className="text-xs sm:text-sm font-medium text-text-secondary">Service 03 - The Framework</span>
             </div>
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4 px-2">
-              Mapped to the <span className="gradient-text">AI Development Life Cycle</span>
+              Mapped to the <span className="gradient-text">Intelligent Software Development Lifecycle</span>
             </h3>
             <p className="text-sm sm:text-base text-text-secondary max-w-2xl mx-auto px-2">
-              We identify gaps at each AIDLC phase and implement optimization infrastructure specific to your workflow.
+              We identify gaps at each ISDLC phase and implement optimization infrastructure specific to your workflow. Learn more at <a href="https://isdlc.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">isdlc.com</a>
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {aidlcPhases.map((item, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-3">
+            {isdlcPhases.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -265,29 +270,29 @@ export default function ServicesSection() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="relative"
               >
-                <div className="bg-bg-secondary rounded-xl sm:rounded-2xl p-5 sm:p-6 h-full border border-primary/10 hover:border-primary/30 transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm sm:text-base flex-shrink-0">
+                <div className="bg-bg-secondary rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-4 h-full border border-primary/10 hover:border-primary/30 transition-all duration-300">
+                  <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                    <div className="w-6 sm:w-7 h-6 sm:h-7 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs sm:text-sm flex-shrink-0">
                       {index + 1}
                     </div>
-                    <GitBranch className="w-4 sm:w-5 h-4 sm:h-5 text-primary flex-shrink-0" />
+                    <GitBranch className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-primary flex-shrink-0" />
                   </div>
 
-                  <h4 className="text-lg sm:text-xl font-bold text-text-primary mb-2">
+                  <h4 className="text-base sm:text-lg lg:text-base font-bold text-text-primary mb-2">
                     {item.phase}
                   </h4>
 
-                  <div className="text-xs sm:text-sm text-secondary font-semibold mb-2 sm:mb-3">
+                  <div className="text-[10px] sm:text-xs lg:text-[11px] text-secondary font-semibold mb-2">
                     → {item.focus}
                   </div>
 
-                  <p className="text-text-tertiary text-xs sm:text-sm leading-relaxed">
+                  <p className="text-text-tertiary text-[11px] sm:text-xs lg:text-[11px] leading-relaxed">
                     {item.description}
                   </p>
                 </div>
 
-                {index < aidlcPhases.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-primary/50 to-transparent" />
+                {index < isdlcPhases.length - 1 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-1.5 w-3 h-0.5 bg-gradient-to-r from-primary/50 to-transparent" />
                 )}
               </motion.div>
             ))}

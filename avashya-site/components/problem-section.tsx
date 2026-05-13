@@ -112,7 +112,7 @@ export default function ProblemSection() {
               by treating coding agents as <span className="font-semibold">production systems that require observability, governance, and optimization</span>.
             </p>
             <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
-              We map your current state to the AI Development Life Cycle (AIDLC) and implement the infrastructure layer missing from every AI coding workflow.
+              We map your current state to the Intelligent Software Development Lifecycle (ISDLC) and implement the infrastructure layer missing from every AI coding workflow.
             </p>
           </div>
         </motion.div>

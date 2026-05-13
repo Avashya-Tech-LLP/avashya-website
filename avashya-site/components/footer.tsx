@@ -20,7 +20,7 @@ export default function Footer() {
     ],
     resources: [
       { label: 'Documentation', href: '#' },
-      { label: 'AIDLC Guide', href: '#' },
+      { label: 'ISDLC Guide', href: 'https://isdlc.com' },
       { label: 'Case Studies', href: '#' },
       { label: 'Security', href: '#' },
     ],

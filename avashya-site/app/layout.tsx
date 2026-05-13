@@ -12,7 +12,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Avashya | Coding Agent Optimization & AI Governance",
   description: "Transform AI coding assistants into measurable productivity multipliers. Optimize context management, orchestrate team agents, and ship with confidence.",
-  keywords: ["AI Governance", "Coding Agent Optimization", "Engineering Effectiveness", "AIDLC", "Agent Orchestration"],
+  keywords: ["AI Governance", "Coding Agent Optimization", "Engineering Effectiveness", "ISDLC", "Agent Orchestration", "Intelligent Software Development Lifecycle"],
   authors: [{ name: "Avashya" }],
   openGraph: {
     title: "Avashya | Maximize Engineering Velocity with Agentic Optimization",
