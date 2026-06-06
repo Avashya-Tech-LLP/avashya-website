@@ -1033,7 +1033,7 @@ function Footer() {
             </div>
           </div>
           <p className="text-xs" style={{ color: 'var(--color-text-tertiary)' }}>
-            &copy; 2025 Avashya. All rights reserved.
+            &copy; 2026 Avashya. All rights reserved.
           </p>
         </div>
       </div>

@@ -570,7 +570,7 @@ function Footer() {
             <AWSLogo className="h-3.5 w-auto opacity-40" />
             <ClaudeMark className="w-4 h-4 opacity-40" />
           </div>
-          <p className="text-[11px]" style={{ color: 'var(--color-text-tertiary)' }}>&copy; 2025 Avashya</p>
+          <p className="text-[11px]" style={{ color: 'var(--color-text-tertiary)' }}>&copy; 2026 Avashya</p>
         </div>
       </div>
     </footer>
