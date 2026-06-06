@@ -1,21 +1,31 @@
 import Navigation from '@/components/navigation';
 import HeroSection from '@/components/hero-section';
-import ProblemSection from '@/components/problem-section';
-import ServicesSection from '@/components/services-section';
+import SocialProofBar from '@/components/social-proof-bar';
+import ProblemsSection from '@/components/problems-section';
 import PlatformSection from '@/components/platform-section';
-import ContactSection from '@/components/contact-section';
+import ImpactSection from '@/components/impact-section';
+import HowWeWorkSection from '@/components/how-we-work-section';
+import ThoughtLeadershipSection from '@/components/thought-leadership-section';
+import FoundersSection from '@/components/founders-section';
+import FinalCtaSection from '@/components/final-cta-section';
 import Footer from '@/components/footer';
+import ThemeToggle from '@/components/theme-toggle';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-bg-primary">
+    <main className="min-h-screen" style={{ background: 'var(--background)' }}>
       <Navigation />
       <HeroSection />
-      <ProblemSection />
-      <ServicesSection />
+      <SocialProofBar />
+      <ProblemsSection />
       <PlatformSection />
-      <ContactSection />
+      <ImpactSection />
+      <HowWeWorkSection />
+      <ThoughtLeadershipSection />
+      <FoundersSection />
+      <FinalCtaSection />
       <Footer />
+      <ThemeToggle />
     </main>
   );
 }

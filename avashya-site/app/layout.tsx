@@ -10,13 +10,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Avashya | Coding Agent Optimization & AI Governance",
-  description: "Transform AI coding assistants into measurable productivity multipliers. Optimize context management, orchestrate team agents, and ship with confidence.",
-  keywords: ["AI Governance", "Coding Agent Optimization", "Engineering Effectiveness", "ISDLC", "Agent Orchestration", "Intelligent Software Development Lifecycle"],
+  title: "Avashya | Measure, Govern & Optimize AI Agents in Your Engineering Org",
+  description: "The command center for AI-assisted engineering. Track agent effectiveness, compare teams, and get actionable recommendations to maximize ROI from Claude Code, Copilot, and Cursor.",
+  keywords: ["AI Agent Governance", "Coding Agent Optimization", "Engineering Effectiveness", "AI Observability", "Agent Management Platform"],
   authors: [{ name: "Avashya" }],
   openGraph: {
-    title: "Avashya | Maximize Engineering Velocity with Agentic Optimization",
-    description: "The Avashya Intelligence Platform - Enterprise AI governance and coding agent optimization",
+    title: "Avashya | The Command Center for AI-Assisted Engineering",
+    description: "Measure, govern, and optimize every AI agent in your engineering org.",
     type: "website",
   },
 };
@@ -27,10 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

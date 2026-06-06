@@ -2,177 +2,129 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Zap, Code2, TrendingUp } from 'lucide-react';
-import FilloutModal from './fillout-modal';
+import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import DemoModal from './demo-modal';
 
 export default function HeroSection() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const [email, setEmail] = useState('');
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bg-primary">
-      {/* Animated Background Grid */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(rgba(139, 92, 246, 0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(139, 92, 246, 0.1) 1px, transparent 1px)`,
-          backgroundSize: '64px 64px'
-        }} />
-      </div>
-
-      {/* Gradient Orbs */}
-      <motion.div
-        className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      <motion.div
-        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"
-        animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.5, 0.3, 0.5],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-
-      {/* Content Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24">
-        <div className="text-center space-y-6 sm:space-y-8">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex"
-          >
-            <div className="glass-effect rounded-full px-4 sm:px-6 py-2 inline-flex items-center gap-2">
-              <Zap className="w-4 h-4 text-accent flex-shrink-0" />
-              <span className="text-xs sm:text-sm font-medium text-text-secondary">
-                The Avashya Intelligence Platform
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight px-2"
-          >
-            <span className="text-text-primary">Maximize Engineering</span>
-            <br />
-            <span className="text-text-primary">Velocity with </span>
-            <span className="gradient-text">Agentic Optimization</span>
-          </motion.h1>
-
-          {/* Sub-headline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-text-secondary max-w-4xl mx-auto leading-relaxed px-2"
-          >
-            Transform AI coding assistants from experimental tools into measurable productivity multipliers.
-            <br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>
-            Optimize context management, orchestrate team agents, and ship with confidence.
-          </motion.p>
-
-          {/* Value Props Grid */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-4xl mx-auto pt-6 sm:pt-8 px-2"
-          >
-            {[
-              { icon: Code2, label: '3x Context Efficiency', description: 'Eliminate redundant token usage' },
-              { icon: TrendingUp, label: '40% Faster Iterations', description: 'Measurable cycle time reduction' },
-              { icon: Zap, label: 'Zero Trust Agent Security', description: 'Enterprise-grade governance' },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="glass-effect rounded-xl sm:rounded-2xl p-4 sm:p-6 text-left hover:border-primary/30 transition-all duration-300"
-              >
-                <item.icon className="w-6 sm:w-8 h-6 sm:h-8 text-primary mb-2 sm:mb-3" />
-                <h3 className="text-base sm:text-lg font-semibold text-text-primary mb-1">{item.label}</h3>
-                <p className="text-xs sm:text-sm text-text-tertiary">{item.description}</p>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center pt-6 sm:pt-8 px-2"
-          >
-            <button
-              onClick={() => setIsDemoModalOpen(true)}
-              className="group relative px-6 sm:px-8 py-3.5 sm:py-4 bg-primary hover:bg-primary-light rounded-full font-semibold text-white transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden min-h-[48px]"
-            >
-              <span className="relative z-10 text-sm sm:text-base">Request Platform Demo</span>
-              <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </button>
-
-            <button className="px-6 sm:px-8 py-3.5 sm:py-4 glass-effect hover:border-primary/50 rounded-full font-semibold text-text-primary transition-all duration-300 text-sm sm:text-base min-h-[48px]">
-              Assess Your Engineering Effectiveness
-            </button>
-          </motion.div>
-
-          {/* Social Proof */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="pt-12 sm:pt-16 px-2"
-          >
-            <p className="text-xs sm:text-sm text-text-tertiary mb-4">Trusted by engineering teams optimizing AI workflows</p>
-            <div className="flex justify-center items-center gap-4 sm:gap-6 md:gap-8 opacity-50 overflow-x-auto">
-              {/* Placeholder for company logos */}
-              <div className="w-20 sm:w-24 h-6 sm:h-8 bg-text-tertiary/20 rounded flex-shrink-0" />
-              <div className="w-20 sm:w-24 h-6 sm:h-8 bg-text-tertiary/20 rounded flex-shrink-0" />
-              <div className="w-20 sm:w-24 h-6 sm:h-8 bg-text-tertiary/20 rounded flex-shrink-0 hidden sm:block" />
-              <div className="w-20 sm:w-24 h-6 sm:h-8 bg-text-tertiary/20 rounded flex-shrink-0 hidden sm:block" />
-            </div>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: 'var(--color-cream)' }}>
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 sm:pt-48 pb-20">
+        {/* Partner badges */}
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-text-tertiary/50 rounded-full flex items-start justify-center p-2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-wrap items-center justify-center gap-4 mb-10"
         >
-          <div className="w-1 h-2 bg-text-tertiary/50 rounded-full" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border" style={{ borderColor: 'var(--color-border)', background: 'var(--color-card-bg)' }}>
+            {/* Placeholder for Claude/Anthropic partner logo */}
+            <div className="w-5 h-5 rounded bg-[#D97706] flex items-center justify-center">
+              <span className="text-[9px] font-bold text-white">C</span>
+            </div>
+            <span className="text-xs font-semibold" style={{ color: 'var(--color-text-primary)' }}>Official Claude Partner</span>
+          </div>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border" style={{ borderColor: 'var(--color-border)', background: 'var(--color-card-bg)' }}>
+            {/* Placeholder for AWS partner logo */}
+            <div className="w-5 h-5 rounded bg-[#FF9900] flex items-center justify-center">
+              <span className="text-[9px] font-bold text-white">A</span>
+            </div>
+            <span className="text-xs font-semibold" style={{ color: 'var(--color-text-primary)' }}>AWS Advanced Tier Partner</span>
+          </div>
         </motion.div>
-      </motion.div>
 
-      {/* Fillout Modal */}
-      <FilloutModal
-        isOpen={isDemoModalOpen}
-        onClose={() => setIsDemoModalOpen(false)}
-        formId="pRLAtvCzPGus"
-      />
+        {/* Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="text-center text-[clamp(2.5rem,7vw,5.5rem)] font-bold tracking-tight leading-[1.05]"
+          style={{ color: 'var(--color-text-primary)' }}
+        >
+          Engineer AI Into
+          <br />
+          Your <span className="heading-serif" style={{ color: 'var(--color-primary)' }}>Core Operations</span>
+        </motion.h1>
+
+        {/* Subheadline */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.25 }}
+          className="mt-6 text-center text-[clamp(1.05rem,2.2vw,1.3rem)] max-w-2xl mx-auto leading-relaxed"
+          style={{ color: 'var(--color-text-secondary)' }}
+        >
+          We embed production AI systems into engineering organizations, from coding agents to intelligent automation. Deep AWS infrastructure expertise meets hands-on delivery that drives measurable transformation, not slide decks.
+        </motion.p>
+
+        {/* Email capture CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-10 flex flex-col sm:flex-row gap-3 justify-center items-center max-w-md mx-auto"
+        >
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Your work email"
+            className="w-full sm:flex-1 px-5 py-3.5 rounded-full border text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-purple-300"
+            style={{ borderColor: 'var(--color-border)', background: 'var(--color-card-bg)', color: 'var(--color-text-primary)' }}
+          />
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={() => setIsDemoModalOpen(true)}
+            className="btn-primary px-6 py-3.5 text-sm font-semibold inline-flex items-center gap-2 whitespace-nowrap"
+          >
+            <span>Request Demo</span>
+            <ArrowRight className="w-4 h-4" />
+          </motion.button>
+        </motion.div>
+
+        {/* Secondary CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.55 }}
+          className="mt-4 text-center"
+        >
+          <a href="#platform" className="text-sm font-medium transition-colors hover:underline" style={{ color: 'var(--color-text-tertiary)' }}>
+            See the platform →
+          </a>
+        </motion.div>
+
+        {/* Hero image placeholder */}
+        <motion.div
+          initial={{ opacity: 0, y: 60, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="mt-16 sm:mt-20 max-w-4xl mx-auto"
+        >
+          <div
+            className="w-full aspect-[16/9] rounded-2xl border-2 border-dashed flex items-center justify-center"
+            style={{ borderColor: 'var(--color-border)', background: 'var(--color-section-alt)' }}
+          >
+            <div className="text-center px-6">
+              <div className="w-16 h-16 rounded-xl mx-auto mb-4 flex items-center justify-center" style={{ background: 'var(--color-border)' }}>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ color: 'var(--color-text-tertiary)' }}>
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <path d="M21 15l-5-5L5 21" />
+                </svg>
+              </div>
+              <p className="text-sm font-medium" style={{ color: 'var(--color-text-tertiary)' }}>Product Screenshot / Hero Banner</p>
+              <p className="text-xs mt-1" style={{ color: 'var(--color-text-tertiary)' }}>Generate with LLM, 1200x675px recommended</p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      <DemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
     </section>
   );
 }

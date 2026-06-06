@@ -79,9 +79,9 @@ export async function POST(request: NextRequest) {
     const { name, email, company, message } = body;
 
     // Validate required fields
-    if (!name || !email || !company || !message) {
+    if (!email || !company) {
       return NextResponse.json(
-        { error: 'All fields are required.' },
+        { error: 'Email and company are required.' },
         { status: 400 }
       );
     }
@@ -95,14 +95,32 @@ export async function POST(request: NextRequest) {
     }
 
     // Sanitize inputs
-    const safeName = sanitizeInput(name);
+    const safeName = sanitizeInput(name || '');
     const safeEmail = sanitizeInput(email);
     const safeCompany = sanitizeInput(company);
-    const safeMessage = sanitizeInput(message);
+    const safeMessage = sanitizeInput(message || '');
 
     // Prepare email content
     const timestamp = new Date().toISOString();
-    const emailBody = `
+    const isDemo = !safeName && safeMessage.startsWith('Team size:');
+    const subject = isDemo
+      ? `Demo Request - ${safeCompany} (${safeEmail})`
+      : `New Contact - ${safeName} (${safeCompany})`;
+
+    const emailBody = isDemo
+      ? `
+New Demo Request
+
+Email: ${safeEmail}
+Company: ${safeCompany}
+${safeMessage}
+
+---
+Submitted at: ${timestamp}
+Source: Avashya Website - Request Demo
+IP Address: ${ip}
+      `.trim()
+      : `
 New Contact Form Submission
 
 From: ${safeName}
@@ -116,7 +134,7 @@ ${safeMessage}
 Submitted at: ${timestamp}
 Source: Avashya Website Contact Form
 IP Address: ${ip}
-    `.trim();
+      `.trim();
 
     // Send email via SES
     const command = new SendEmailCommand({
@@ -126,7 +144,7 @@ IP Address: ${ip}
       },
       Message: {
         Subject: {
-          Data: `New Contact Form Submission - ${safeName}`,
+          Data: subject,
           Charset: 'UTF-8',
         },
         Body: {
