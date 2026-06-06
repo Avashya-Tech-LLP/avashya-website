@@ -44,13 +44,13 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
       } else {
         const subject = encodeURIComponent(`Demo Request - ${formData.company}`);
         const body = encodeURIComponent(`Email: ${formData.email}\nCompany: ${formData.company}\nTeam Size: ${formData.teamSize}`);
-        window.location.href = `mailto:pradipta.dash@avashya.tech?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:hello@avashya.tech?subject=${subject}&body=${body}`;
         setToast({ show: true, message: "Opening email client...", type: 'success' });
         setFormData({ email: '', company: '', teamSize: '' });
         setTimeout(onClose, 1500);
       }
     } catch {
-      setToast({ show: true, message: 'Failed to send. Please email pradipta.dash@avashya.tech', type: 'error' });
+      setToast({ show: true, message: 'Failed to send. Please email hello@avashya.tech', type: 'error' });
     } finally {
       setIsSubmitting(false);
     }

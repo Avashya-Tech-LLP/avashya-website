@@ -64,7 +64,7 @@ export default function ContactSection() {
       // Network error
       setToast({
         show: true,
-        message: 'Failed to send message. Please try again or email us at varun.k@avashya.tech',
+        message: 'Failed to send message. Please try again or email us at hello@avashya.tech',
         type: 'error',
       });
     } finally {

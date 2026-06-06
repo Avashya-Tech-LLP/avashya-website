@@ -169,7 +169,7 @@ IP Address: ${ip}
 
     // Don't expose internal errors to client
     return NextResponse.json(
-      { error: 'Failed to send message. Please try again or email us directly at varun.k@avashya.tech' },
+      { error: 'Failed to send message. Please try again or email us directly at hello@avashya.tech' },
       { status: 500 }
     );
   }
