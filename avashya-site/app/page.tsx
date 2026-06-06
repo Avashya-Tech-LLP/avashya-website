@@ -16,7 +16,6 @@ import {
   Globe,
   Moon,
   Sun,
-  Play,
 } from 'lucide-react';
 import DemoModal from '@/components/demo-modal';
 
@@ -286,23 +285,6 @@ function NeuralCanvas() {
   );
 }
 
-// ─── Video Placeholder ───────────────────────────────────────────────────────
-
-function VideoPlaceholder({ title, aspectRatio = '16/9' }: { title: string; aspectRatio?: string }) {
-  return (
-    <div
-      className="relative w-full rounded-2xl border-2 border-dashed overflow-hidden group cursor-pointer transition-all hover:shadow-lg"
-      style={{ aspectRatio, borderColor: 'var(--color-border)', background: 'var(--color-surface-dark)' }}
-    >
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-        <div className="w-16 h-16 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style={{ background: 'rgba(255,255,255,0.1)' }}>
-          <Play className="w-7 h-7 text-white/80 ml-1" />
-        </div>
-        <p className="text-sm font-medium text-white/60">{title}</p>
-      </div>
-    </div>
-  );
-}
 
 // ─── Navigation ──────────────────────────────────────────────────────────────
 
@@ -867,16 +849,6 @@ function ResultsSection() {
           ))}
         </div>
 
-        {/* Client story video */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-12"
-        >
-          <VideoPlaceholder title="Client testimonial — AI transformation at scale" />
-        </motion.div>
       </div>
     </section>
   );
