@@ -1,5 +1,5 @@
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
-import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
+import { S3Client, PutObjectCommand, GetObjectCommand } from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 
 const sesClient = new SESClient({ region: process.env.SES_AWS_REGION || 'us-east-1' });
@@ -70,9 +70,14 @@ export const handler = async (event) => {
       const timestamp = new Date().toISOString();
       const ip = event.requestContext?.http?.sourceIp || 'unknown';
 
-      const resumeUrl = resumeKey
-        ? `https://s3.amazonaws.com/${process.env.RESUME_BUCKET}/${resumeKey}`
-        : 'No resume uploaded';
+      let resumeUrl = 'No resume uploaded';
+      if (resumeKey) {
+        const getCommand = new GetObjectCommand({
+          Bucket: process.env.RESUME_BUCKET,
+          Key: resumeKey,
+        });
+        resumeUrl = await getSignedUrl(s3Client, getCommand, { expiresIn: 604800 });
+      }
 
       const emailBody = `New Job Application
 

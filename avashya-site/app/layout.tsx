@@ -27,7 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" className={`${inter.variable} h-full antialiased`} data-theme="dark">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('avashya-theme');if(t)document.documentElement.setAttribute('data-theme',t)})()` }} />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

@@ -11,7 +11,7 @@ interface DemoModalProps {
 }
 
 export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
-  const [formData, setFormData] = useState({ email: '', company: '', teamSize: '' });
+  const [formData, setFormData] = useState({ email: '', company: '', teamSize: '', phone: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toast, setToast] = useState<{ show: boolean; message: string; type: 'success' | 'error' }>({ show: false, message: '', type: 'success' });
 
@@ -32,21 +32,21 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
         const response = await fetch(apiUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name: '', email: formData.email, company: formData.company, message: `Team size: ${formData.teamSize}` }),
+          body: JSON.stringify({ name: '', email: formData.email, company: formData.company, message: `Team size: ${formData.teamSize}${formData.phone ? `\nPhone: ${formData.phone}` : ''}${formData.message ? `\n\n${formData.message}` : ''}` }),
         });
         if (response.ok) {
           setToast({ show: true, message: "We'll be in touch within 24 hours.", type: 'success' });
-          setFormData({ email: '', company: '', teamSize: '' });
+          setFormData({ email: '', company: '', teamSize: '', phone: '', message: '' });
           setTimeout(onClose, 1500);
         } else {
           setToast({ show: true, message: 'Something went wrong. Please try again.', type: 'error' });
         }
       } else {
         const subject = encodeURIComponent(`Demo Request - ${formData.company}`);
-        const body = encodeURIComponent(`Email: ${formData.email}\nCompany: ${formData.company}\nTeam Size: ${formData.teamSize}`);
+        const body = encodeURIComponent(`Email: ${formData.email}\nCompany: ${formData.company}\nTeam Size: ${formData.teamSize}${formData.phone ? `\nPhone: ${formData.phone}` : ''}${formData.message ? `\n\n${formData.message}` : ''}`);
         window.location.href = `mailto:hello@avashya.tech?subject=${subject}&body=${body}`;
         setToast({ show: true, message: "Opening email client...", type: 'success' });
-        setFormData({ email: '', company: '', teamSize: '' });
+        setFormData({ email: '', company: '', teamSize: '', phone: '', message: '' });
         setTimeout(onClose, 1500);
       }
     } catch {
@@ -112,6 +112,21 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                       <option value="51-200">51–200 engineers</option>
                       <option value="200+">200+ engineers</option>
                     </select>
+                  </div>
+                  <div>
+                    <label htmlFor="demo-phone" className="block text-sm mb-1.5 font-medium" style={{ color: '#4A4A4A' }}>Phone number <span style={{ color: '#AAA' }}>(optional)</span></label>
+                    <input type="tel" id="demo-phone" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
+                      style={{ background: '#FFFFFF', border: '1px solid rgba(0,0,0,0.1)', color: '#1A1A1A' }}
+                      placeholder="+91 XXXXX X4210" />
+                  </div>
+                  <div>
+                    <label htmlFor="demo-message" className="block text-sm mb-1.5 font-medium" style={{ color: '#4A4A4A' }}>Message <span style={{ color: '#AAA' }}>(optional)</span></label>
+                    <textarea id="demo-message" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all resize-none"
+                      style={{ background: '#FFFFFF', border: '1px solid rgba(0,0,0,0.1)', color: '#1A1A1A' }}
+                      rows={3}
+                      placeholder="Tell us about your current AI workflow or what you're looking to solve..." />
                   </div>
                   <button type="submit" disabled={isSubmitting}
                     className="w-full px-6 py-3.5 text-sm font-semibold rounded-full flex items-center justify-center gap-2 min-h-[48px] disabled:opacity-50 disabled:cursor-not-allowed transition-all"
