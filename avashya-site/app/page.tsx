@@ -18,6 +18,7 @@ import {
   Sun,
   Play,
 } from 'lucide-react';
+import DemoModal from '@/components/demo-modal';
 
 // ─── Theme Toggle ────────────────────────────────────────────────────────────
 
@@ -305,7 +306,7 @@ function VideoPlaceholder({ title, aspectRatio = '16/9' }: { title: string; aspe
 
 // ─── Navigation ──────────────────────────────────────────────────────────────
 
-function Navigation() {
+function Navigation({ onBookCall }: { onBookCall: () => void }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b" style={{ background: 'var(--color-nav-bg)', borderColor: 'var(--color-border)' }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
@@ -318,9 +319,9 @@ function Navigation() {
           <a href="#approach" className="text-sm font-medium transition-colors hover:text-[var(--color-primary)]" style={{ color: 'var(--color-text-secondary)' }}>Approach</a>
           <a href="/join-us" className="text-sm font-medium transition-colors hover:text-[var(--color-primary)]" style={{ color: 'var(--color-text-secondary)' }}>Join Us</a>
         </div>
-        <a href="#contact" className="btn-primary px-5 py-2.5 text-sm font-semibold inline-flex items-center gap-2">
+        <button onClick={onBookCall} className="btn-primary px-5 py-2.5 text-sm font-semibold inline-flex items-center gap-2">
           Book a Call <ArrowRight className="w-3.5 h-3.5" />
-        </a>
+        </button>
       </div>
     </nav>
   );
@@ -328,7 +329,7 @@ function Navigation() {
 
 // ─── Hero Section ────────────────────────────────────────────────────────────
 
-function HeroSection() {
+function HeroSection({ onBookCall }: { onBookCall: () => void }) {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: 'var(--color-cream)' }}>
       <NeuralCanvas />
@@ -398,9 +399,9 @@ function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <a href="#contact" className="btn-primary btn-glow px-8 py-4 text-sm font-semibold inline-flex items-center gap-2">
+          <button onClick={onBookCall} className="btn-primary btn-glow px-8 py-4 text-sm font-semibold inline-flex items-center gap-2">
             Book a Call <ArrowRight className="w-4 h-4" />
-          </a>
+          </button>
           <a href="#services" className="btn-orbit px-8 py-4 text-sm font-semibold rounded-full transition-all hover:shadow-md inline-flex items-center gap-2 relative" style={{ color: 'var(--color-text-primary)' }}>
             Explore Services
           </a>
@@ -948,7 +949,7 @@ function TestimonialsSection() {
 
 // ─── CTA Section ─────────────────────────────────────────────────────────────
 
-function CTASection() {
+function CTASection({ onBookCall }: { onBookCall: () => void }) {
   return (
     <section id="contact" className="relative py-24 sm:py-32" style={{ background: 'var(--color-section-alt)' }}>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -967,9 +968,9 @@ function CTASection() {
           <p className="text-base text-white/70 max-w-md mx-auto mb-8">
             30-minute call. We diagnose your highest-leverage AI opportunity and tell you exactly what we&apos;d build — even if you don&apos;t hire us.
           </p>
-          <a href="mailto:hello@avashya.com" className="btn-primary px-8 py-4 text-sm font-semibold inline-flex items-center gap-2">
+          <button onClick={onBookCall} className="btn-primary px-8 py-4 text-sm font-semibold inline-flex items-center gap-2">
             Book a Call <ArrowRight className="w-4 h-4" />
-          </a>
+          </button>
           <p className="text-xs text-white/40 mt-6">Or email us directly: hello@avashya.com</p>
         </motion.div>
       </div>
@@ -1015,19 +1016,23 @@ function Footer() {
 // ─── Page ────────────────────────────────────────────────────────────────────
 
 export default function Home() {
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const openModal = () => setIsDemoModalOpen(true);
+
   return (
     <main className="min-h-screen" style={{ background: 'var(--background)' }}>
-      <Navigation />
-      <HeroSection />
+      <Navigation onBookCall={openModal} />
+      <HeroSection onBookCall={openModal} />
       <ServicesSection />
       <SolutionsSection />
       <DifferentiatorsSection />
       <ApproachSection />
       <ResultsSection />
       <TestimonialsSection />
-      <CTASection />
+      <CTASection onBookCall={openModal} />
       <Footer />
       <ThemeToggle />
+      <DemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
     </main>
   );
 }

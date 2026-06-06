@@ -29,7 +29,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL;
       if (apiUrl) {
-        const response = await fetch(`${apiUrl}/contact`, {
+        const response = await fetch(apiUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name: '', email: formData.email, company: formData.company, message: `Team size: ${formData.teamSize}` }),
